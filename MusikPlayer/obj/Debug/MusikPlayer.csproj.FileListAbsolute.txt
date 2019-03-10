@@ -1,0 +1,15 @@
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csprojAssemblyReference.cache
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MainWindow.g.cs
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\App.g.cs
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer_MarkupCompile.cache
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer_MarkupCompile.lref
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\bin\Debug\MusikPlayer.exe.config
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\bin\Debug\MusikPlayer.exe
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\bin\Debug\MusikPlayer.pdb
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MainWindow.baml
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.g.resources
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.Properties.Resources.resources
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csproj.GenerateResource.cache
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csproj.CoreCompileInputs.cache
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.exe
+C:\Users\maste\source\repos\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.pdb

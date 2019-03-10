@@ -1,0 +1,74 @@
+﻿<Window x:Class="MusikPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusikPlayer"
+        mc:Ignorable="d"
+        Title="~Okox V.0.1" Height="450" Width="800" WindowStyle="SingleBorderWindow">
+    <Grid>
+        <!--SpaltenDefinition-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <!--ReihenDefinition-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <!--TextBlöcke-->
+        <TextBlock Grid.Column="2" Grid.Row="0" Height="50"  FontSize="20" Foreground="LightBlue" >
+            Music Player V.0.1
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="0" Height="50"  Width="105" FontSize="12" Foreground="LightBlue" >
+            Dateipfad eingeben 
+        </TextBlock>
+        
+        <!--TextBlock Pfade-->
+        <TextBox Name="Pfad_1" Grid.Row="1" Grid.Column="0" FontSize="8" />
+        <TextBox Name="Pfad_2" Grid.Row="2" Grid.Column="0"  />
+        <TextBox Name="Pfad_3" Grid.Row="3" Grid.Column="0" Text="@C:\Users\maste\Desktop\hello.wav" />
+
+        <!--WMP Element-->
+        <MediaElement Name="MediaPlayer_1" Grid.Row="1" Grid.Column="4" AllowDrop="True" Visibility="Visible" >
+
+        </MediaElement>
+
+        <!--Buttons-->
+            <!--Save & Load-->
+        <Button Click="Save" Grid.Row="0" Grid.Column="3" Height="50" Width="80"  Foreground="Blue" Background="White" >
+            <Button.Content>Save</Button.Content>
+        </Button>
+        <Button Click="Load" Grid.Row="0" Grid.Column="4" Height="50" Width="80"  Foreground="Blue" Background="White" >
+            <Button.Content>Load</Button.Content>
+        </Button>
+        
+            <!--Open file-->
+        <Button Click="OpenFile_1" Name="OpenFile_Button_1" Grid.Row="1" Grid.Column="0" Height="50" Width="80"  Foreground="Blue" Background="White">
+            <Button.Content>Datei Laden</Button.Content>
+        </Button>
+            <!--Play-->
+        <Button Click="Play_1_Click" Name="Play_1" Grid.Row="1" Grid.Column="3" Height="50" Width="80"  Foreground="Blue" Background="White">
+            <Button.Content>Play</Button.Content>
+        </Button>
+        <Button Click="Play_2_Click" Name="Play_2" Grid.Row="2" Grid.Column="3" Height="50" Width="80"  Foreground="Blue" Background="White">
+            <Button.Content>Play</Button.Content>
+        </Button>
+        <Button Click="Play_3_Click" Name="Play_3" Grid.Row="3" Grid.Column="3" Height="50" Width="80"  Foreground="Blue" Background="White">
+            <Button.Content>Play</Button.Content>
+        </Button>
+        
+        
+        
+
+    </Grid>
+
+</Window>
