@@ -12,6 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Media;
+using System.IO;
+using Microsoft.Win32;
+
+
 
 
 namespace MusikPlayer
@@ -21,8 +30,9 @@ namespace MusikPlayer
     /// </summary>
     public partial class MainWindow 
     {
+        //   C:\Users\maste\Desktop\hello.wav
         string path1;
-        string path2 = @"C:\Users\maste\Desktop\hello.wav";
+        string path2;
         string path3;
 
         public MainWindow()
@@ -30,51 +40,79 @@ namespace MusikPlayer
             InitializeComponent();
         }
 
-        public void ChooseFolder()
+        public void ChooseFolder_1(object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if(openFileDialog.ShowDialog() == true)
             {
-                textBox1.Text = folderBrowserDialog1.SelectedPath;
+                foreach (string filename in openFileDialog.FileNames)
+                    Pfad_1.Text = filename;
             }
         }
 
+        public void ChooseFolder_2(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (string filename in openFileDialog.FileNames)
+                    Pfad_2.Text = filename;
+            }
+        }
+
+        public void ChooseFolder_3(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (string filename in openFileDialog.FileNames)
+                    Pfad_3.Text = filename;
+            }
+        }
+
+
+        private void Save(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kek");
+        }
+
+        private void Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kek");
+        }
+
+        //PLAY
+
         private void Play_1_Click(object sender, System.EventArgs e)
         {
-            path1 = '"' + Pfad_1.Text + '"';
-            if (path1 != "")            
-            {
-                
-                System.Media.SoundPlayer player1 = new System.Media.SoundPlayer(path1);
-                player1.Play();
-                
-            }
-            else
-            { return; }
-
+            string path1 = Pfad_1.Text;
+            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path1);
+            soundPlayer.Play();
         }
 
         private void Play_2_Click(object sender, System.EventArgs e)
         {
-            System.Media.SoundPlayer player2 = new System.Media.SoundPlayer(path2);
-            player2.Play(); 
+            string path2 = Pfad_2.Text;
+            System.Media.SoundPlayer soundplayer = new System.Media.SoundPlayer(path2);
+            soundplayer.Play();
         }
 
         private void Play_3_Click(object sender, System.EventArgs e)
         {
-            path3 = Pfad_3.Text;
-            System.Media.SoundPlayer player3 = new System.Media.SoundPlayer(path3);
-            player3.Play();
+           string path3 = Pfad_3.Text;
+           System.Media.SoundPlayer soundplayer = new System.Media.SoundPlayer(path3);
+           soundplayer.Play();
         }
 
-        private void Save(object sender, System.EventArgs e)
+        //STOP
+
+        private void Stop_Click(object sender, EventArgs e)
         {
-            var x = 0;
+            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+            soundPlayer.Stop();
         }
 
-        private void Load(object sender, System.EventArgs e)
-        {
-            var x = 0;
-        }
+        
 
     }
 }
