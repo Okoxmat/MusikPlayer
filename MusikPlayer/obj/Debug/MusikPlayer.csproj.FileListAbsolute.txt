@@ -28,3 +28,8 @@ C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.g.
 C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.Properties.Resources.resources
 C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csproj.GenerateResource.cache
 C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csproj.CoreCompileInputs.cache
+C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\bin\Debug\Vlc.DotNet.Core.dll
+C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\bin\Debug\Vlc.DotNet.Core.Interops.dll
+C:\Users\maste\Documents\GitHub\MusikPlayer\MusikPlayer\obj\Debug\MusikPlayer.csproj.CopyComplete

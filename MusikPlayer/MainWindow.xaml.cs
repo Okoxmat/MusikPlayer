@@ -19,9 +19,8 @@ using System.Drawing;
 using System.Media;
 using System.IO;
 using Microsoft.Win32;
-
-
-
+using AudioSwitcher.AudioApi.CoreAudio;
+using Vlc.DotNet.Core;
 
 namespace MusikPlayer
 {
@@ -31,9 +30,7 @@ namespace MusikPlayer
     public partial class MainWindow 
     {
         //   C:\Users\maste\Desktop\hello.wav
-        string path1;
-        string path2;
-        string path3;
+
 
         public MainWindow()
         {
@@ -78,30 +75,120 @@ namespace MusikPlayer
 
         private void Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Kek");
+            while (true)
+            {
+
+                MessageBox.Show("Kek");
+            }
         }
 
         //PLAY
 
+
         private void Play_1_Click(object sender, System.EventArgs e)
         {
             string path1 = Pfad_1.Text;
-            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path1);
-            soundPlayer.Play();
+            var volume1 = Volume_1.Value;
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            defaultPlaybackDevice.Volume = volume1;
+
+            bool error = false;
+            while (true)
+            {
+            
+                try
+                {
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path1);
+                    soundPlayer.Play();
+                }
+                catch (Exception err)
+                { MessageBox.Show("Fehler: " + err.Message); error = true; }
+                finally {
+                    if (error == false)
+                    {
+                        if (Checkbox_1.IsChecked == false)
+
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path1);
+                            soundPlayer.Play();
+                        }
+                        else
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path1);
+                            soundPlayer.PlayLooping();
+                        }
+                    }             }break;
+            }
         }
 
         private void Play_2_Click(object sender, System.EventArgs e)
         {
             string path2 = Pfad_2.Text;
-            System.Media.SoundPlayer soundplayer = new System.Media.SoundPlayer(path2);
-            soundplayer.Play();
+            bool error = false;
+            while (true)
+            {
+
+                try
+                {
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path2);
+                    soundPlayer.Play();
+                }
+                catch (Exception err)
+                { MessageBox.Show("Fehler: " + err.Message); error = true; }
+                finally
+                {
+                    if (error == false)
+                    {
+                        if (Checkbox_1.IsChecked == false)
+
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path2);
+                            soundPlayer.Play();
+                        }
+                        else
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path2);
+                            soundPlayer.PlayLooping();
+                        }
+                    }
+                }
+                break;
+            }
         }
 
         private void Play_3_Click(object sender, System.EventArgs e)
         {
-           string path3 = Pfad_3.Text;
-           System.Media.SoundPlayer soundplayer = new System.Media.SoundPlayer(path3);
-           soundplayer.Play();
+            string path3 = Pfad_3.Text;
+            bool error = false;
+            while (true)
+            {
+
+                try
+                {
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path3);
+                    soundPlayer.Play();
+                }
+                catch (Exception err)
+                { MessageBox.Show("Fehler: " + err.Message); error = true; }
+                finally
+                {
+                    if (error == false)
+                    {
+                        if (Checkbox_1.IsChecked == false)
+
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path3);
+                            soundPlayer.Play();
+                        }
+                        else
+                        {
+                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path3);
+                            soundPlayer.PlayLooping();
+                        }
+                    }
+                }
+                break;
+            }
         }
 
         //STOP
