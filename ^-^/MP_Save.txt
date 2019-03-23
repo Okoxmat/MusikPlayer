@@ -1,0 +1,12 @@
+C:\Users\maste\Music\hello.wav
+C:\Users\maste\Music\R1337 - Cowbell WAV.wav
+C:\Users\maste\Music\R1337 - Cowbell WAV.wav
+false
+false
+true
+14
+50
+100
+0
+5000
+2500
