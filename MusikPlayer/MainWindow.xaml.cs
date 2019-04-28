@@ -79,52 +79,37 @@ namespace MusikPlayer
             var volume = Volume_1.Value;
             string Fade = FadeTime_1.Text;
 
-            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
             int fc = 0;
-            bool error = false;
-
-
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
             try
             {
-                System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                soundPlayer.Play();
-                soundPlayer.Stop();
-                int.Parse(Fade);
-            }
-            catch (Exception err)
-            { MessageBox.Show("Fehler: " + " " + err.ToString() + "\n\n " + err.Message); error = true; }
-            finally
-            {
-                if (error == false)
+                defaultPlaybackDevice.Volume = volume;
+                if (Checkbox_1.IsChecked == false)
                 {
-                    defaultPlaybackDevice.Volume = volume;
-                    if (Checkbox_1.IsChecked == false)
-
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
+                    soundPlayer.Play();
+                }
+                else
+                {
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
+                    soundPlayer.PlayLooping();
+                }
+                if (Fade != "0")
+                {
+                    int time = (((Int16.Parse(Fade) / 100)));
+                    while (fc <= 100)
                     {
-                        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                        soundPlayer.Play();
-                    }
-                    else
-                    {
-                        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                        soundPlayer.PlayLooping();
-                    }
-
-                    if (Fade != "0,0")
-                    {
-
-                        while (fc != 100)
-                        {
-                            defaultPlaybackDevice.Volume = ((volume / 100) * fc);
-                            int time = (((Int16.Parse(Fade) / 100)));
-                            System.Threading.Thread.Sleep(time);
-                            fc = fc + 1;
-
-                        }
+                        defaultPlaybackDevice.Volume = ((volume / 100) * fc);
+                        string a = Convert.ToString(defaultPlaybackDevice.VolumeChanged);
+                        Debug.WriteLine(a);
+                        System.Threading.Thread.Sleep(time);
+                        fc++;
                     }
                 }
             }
-            }       
+            catch (Exception err)
+            { MessageBox.Show("Fehler: " + " " + err.ToString() + "\n\n " + err.Message);}
+            }
 
         private void Play_2_Click(object sender, System.EventArgs e)
         {
@@ -132,53 +117,36 @@ namespace MusikPlayer
             var volume = Volume_2.Value;
             string Fade = FadeTime_2.Text;
 
-            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
             int fc = 0;
-            bool error = false;
-            while (true)
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            try
             {
-
-                try
+                defaultPlaybackDevice.Volume = volume;
+                if (Checkbox_2.IsChecked == false)
                 {
                     System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
                     soundPlayer.Play();
-                    Int16.Parse(Fade);
                 }
-                catch (Exception err)
-                { MessageBox.Show("Fehler: " + err.Message); error = true; }
-                finally
+                else
                 {
-                    if (error == false)
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
+                    soundPlayer.PlayLooping();
+                }
+                if (Fade != "0")
+                {
+                    int time = (((Int16.Parse(Fade) / 100)));
+                    while (fc <= 100)
                     {
-                        defaultPlaybackDevice.Volume = volume;
-                        if (Checkbox_1.IsChecked == false)
-
-                        {
-                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                            soundPlayer.Play();
-                        }
-                        else
-                        {
-                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                            soundPlayer.PlayLooping();
-                        }
-
-                        if (Fade != "0,0")
-                        {
-
-                            while (fc != 100)
-                            {
-                                defaultPlaybackDevice.Volume = ((volume / 100) * fc);
-                                int time = (((Int16.Parse(Fade) / 100)));
-                                System.Threading.Thread.Sleep(time);
-                                fc = fc + 1;
-                            }
-                        }
-
+                        defaultPlaybackDevice.Volume = ((volume / 100) * fc);
+                        string a = Convert.ToString(defaultPlaybackDevice.VolumeChanged);
+                        Debug.WriteLine(a);
+                        System.Threading.Thread.Sleep(time);
+                        fc++;
                     }
                 }
-                break;
             }
+            catch (Exception err)
+            { MessageBox.Show("Fehler: " + " " + err.ToString() + "\n\n " + err.Message); }
         }
 
         private void Play_3_Click(object sender, System.EventArgs e)
@@ -187,53 +155,36 @@ namespace MusikPlayer
             var volume = Volume_3.Value;
             string Fade = FadeTime_3.Text;
 
-            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
             int fc = 0;
-            bool error = false;
-            while (true)
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+            try
             {
-
-                try
+                defaultPlaybackDevice.Volume = volume;
+                if (Checkbox_3.IsChecked == false)
                 {
                     System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
                     soundPlayer.Play();
-                    Int16.Parse(Fade);
                 }
-                catch (Exception err)
-                { MessageBox.Show("Fehler: " + err.Message); error = true; }
-                finally
+                else
                 {
-                    if (error == false)
+                    System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
+                    soundPlayer.PlayLooping();
+                }
+                if (Fade != "0")
+                {
+                    int time = (((Int16.Parse(Fade) / 100)));
+                    while (fc <= 100)
                     {
-                        defaultPlaybackDevice.Volume = volume;
-                        if (Checkbox_1.IsChecked == false)
-
-                        {
-                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                            soundPlayer.Play();
-                        }
-                        else
-                        {
-                            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer(path);
-                            soundPlayer.PlayLooping();
-                        }
-
-                        if (Fade != "0,0")
-                        {
-
-                            while (fc != 100)
-                            {
-                                defaultPlaybackDevice.Volume = ((volume / 100) * fc);
-                                int time = (((Int16.Parse(Fade) / 100)));
-                                System.Threading.Thread.Sleep(time);
-                                fc = fc + 1;
-                            }
-                        }
-
+                        defaultPlaybackDevice.Volume = ((volume / 100) * fc);
+                        string a = Convert.ToString(defaultPlaybackDevice.VolumeChanged);
+                        Debug.WriteLine(a);
+                        System.Threading.Thread.Sleep(time);
+                        fc++;
                     }
                 }
-                break;
             }
+            catch (Exception err)
+            { MessageBox.Show("Fehler: " + " " + err.ToString() + "\n\n " + err.Message); }
         }
 
         //PAUSE
@@ -243,7 +194,6 @@ namespace MusikPlayer
             var volume = Volume_1.Value;
             string Fade = FadeTime_1.Text;
 
-            bool error = false;
             int fc = 0;
             CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
 
@@ -252,23 +202,17 @@ namespace MusikPlayer
                 try
                 {
                     Int16.Parse(Fade);
-                }
-                catch (Exception er)
-                {
-                    MessageBox.Show("Fehler: " + er.Message);
-                    error = true;
-                }
-
-                if (error == false)
-                {
-
                     int time = (((Int16.Parse(Fade) / 100)));
-                    while (fc != 100)
+                    while (fc <= 100)
                     {
                         defaultPlaybackDevice.Volume = (volume - ((volume / 100) * fc));
                         System.Threading.Thread.Sleep(time);
                         fc++;
                     }
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Fehler: " + er.Message);
                 }
             }
             System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
@@ -280,75 +224,59 @@ namespace MusikPlayer
             var volume = Volume_2.Value;
             string Fade = FadeTime_2.Text;
 
-            bool error = false;
             int fc = 0;
             CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
 
-            if (Fade != "0,0")
+            if (Fade != "0")
             {
                 try
                 {
                     Int16.Parse(Fade);
-                }
-                catch (Exception er)
-                {
-                    MessageBox.Show("Fehler: " + er.Message);
-                    error = true;
-                }
-
-                if (error == false)
-                {
-
-
-                    while (fc != 100)
+                    int time = (((Int16.Parse(Fade) / 100)));
+                    while (fc <= 100)
                     {
-                        defaultPlaybackDevice.Volume = (volume - (volume / 100) * fc);
-                        int time = (((Int16.Parse(Fade) / 100)));
+                        defaultPlaybackDevice.Volume = (volume - ((volume / 100) * fc));
                         System.Threading.Thread.Sleep(time);
-                        fc = fc + 1;
+                        fc++;
                     }
                 }
-            }
-                System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
-            soundPlayer.Stop();
-
-        }
-
-        private void Pause_3_Click(object sender, EventArgs e)
-        {
-            var volume = Volume_3.Value;
-            string Fade = FadeTime_3.Text;
-
-            bool error = false;
-            int fc = 0;
-            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
-
-            if (Fade != "0,0")
-                try
-                {
-                    Int16.Parse(Fade);
-                }
                 catch (Exception er)
                 {
                     MessageBox.Show("Fehler: " + er.Message);
-                    error = true;
-                }
-
-            if (error == false)
-            {
-
-
-                while (fc != 100)
-                {
-                    defaultPlaybackDevice.Volume = (volume - (volume / 100) * fc);
-                    int time = (((Int16.Parse(Fade) / 100)));
-                    System.Threading.Thread.Sleep(time);
-                    fc = fc + 1;
                 }
             }
             System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
             soundPlayer.Stop();
+        }
 
+        private void Pause_3_Click(object sender, EventArgs e)
+        {
+            double volume = Volume_3.Value;
+            string Fade = FadeTime_3.Text;
+
+            int fc = 0;
+            CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+
+            if (Fade != "0")
+            {
+                try
+                {
+                    Int16.Parse(Fade);
+                    int time = (((Convert.ToInt32(Fade) / 20)));
+                    while (fc <= 20)
+                    {
+                        defaultPlaybackDevice.Volume = (volume - ((volume / 100) * fc));
+                        fc++;
+                        System.Threading.Thread.Sleep(time);
+                    }
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Fehler: " + er.Message);
+                }
+            }
+            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+            soundPlayer.Stop();
         }
 
         //STOP
